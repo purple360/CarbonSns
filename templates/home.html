@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+
+
+<div class="container text-center mt-5 bg-dark text-white p-4">
+    <h1 class="display-4">Welcome to CarbonSns</h1>
+    <p class="lead"> Discover trends and news about Carbon emission and capture, and climate change.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}"
+        role="button">View All Articles</a>
+    </p>
+
+
+
+    {% if user.is_authenticated %}
+    <p class="mt-4">Hi, {{ user.username }}!</p>
+    <p>You are logged in.</p>
+    <a class="btn btn-danger" href="{% url 'logout' %}" role="button">Log Out</a>
+    {% else %}
+    <p class="mt-4">You are not logged in.</p>
+    <a class="btn btn-primary" href="{% url 'login' %}" role="button">Log In</a>
+    <a class="btn btn-success" href="{% url 'signup' %}" role="button">Sign Up</a>
+    {% endif %}
+
+    <p align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+            CarbonSns, TechSns iniative<br>
+            © 2023 SnsGroup &amp; Co. </font> <br>
+    </p>
+</div>
+{% endblock content %}
